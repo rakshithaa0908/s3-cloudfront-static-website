@@ -22,9 +22,6 @@ s3-cloudfront-static-website/
 
 ---
 
-
----
-
 ## What Is a Static Website?
 
 A static website serves fixed files such as HTML, CSS, JavaScript, and JSON.  
