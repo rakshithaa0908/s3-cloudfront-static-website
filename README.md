@@ -40,6 +40,7 @@ A static website serves fixed files (HTML, CSS, JS, JSON) directly to the browse
 - Fast, reliable, pay-as-you-go
 
 ## Project Structure
+```
 s3-cloudfront-static-website/
 │
 ├── docs/
@@ -51,7 +52,7 @@ s3-cloudfront-static-website/
 ├── README.md
 ├── index.html
 └── LICENSE
-
+```
 
 ## Architecture Diagram
 Below is the architecture of the static website hosted on S3 and delivered through CloudFront:
