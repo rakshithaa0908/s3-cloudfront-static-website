@@ -1,244 +1,90 @@
-<<<<<<< HEAD
 ﻿# Deploying a Static Website Using Amazon S3 and CloudFront
 
-This project explains how to host a static website on AWS using an S3 bucket and deliver it globally using Amazon CloudFront.  
-It covers how static sites work, why companies use them, key AWS services involved, and step-by-step deployment guidance.
+Host a static website on AWS using S3 and deliver it globally via CloudFront. This guide covers static site concepts, AWS services used, deployment steps, and architecture.
 
----
+## What Is a Static Website?
 
-## What Is Static Website Hosting?
+A static website serves fixed files (HTML, CSS, JS, JSON) directly to the browser without backend code or a database.
 
-A static website contains fixed files such as HTML, CSS, JavaScript, and JSON.  
-The server delivers these files directly to the browser without running backend code or connecting to a database.
-=======
-# Deploying a Static Website Using S3 and CloudFront
+### Examples
+- Personal portfolios  
+- Company info pages  
+- Documentation sites
 
-This repository documents how to host a static website on AWS using an S3 bucket and deliver it globally using Amazon CloudFront.  
-It includes a sample site, deployment steps, an architecture diagram, and placeholder folders for screenshots.
+## Why Use S3 + CloudFront?
 
----
-
-## Project Structure
-
-s3-cloudfront-static-website/
-│
-├── docs/
-│   ├── architecture.png
-│   ├── screenshots/
-│   │   └── privately hosted
-│   │   └── publicly hosted
-│   └── deployment-steps.md
-│
-├── index.html
-├── README.md
-└── LICENSE
->>>>>>> 6d8a72082c4c0ffc78e98edea64053692407dac8
-
-Examples:
-- Portfolio websites  
-- Company information pages  
-- Simple documentation sites  
-
-<<<<<<< HEAD
-### Why Companies Use Static Websites
 - No servers to manage  
-- Low cost  
-- High security  
-- Fast performance  
-
----
+- Cost effective  
+- Secure with Origin Access Control (OAC)  
+- Fast global delivery via CloudFront edge caching
 
 ## Static vs Dynamic Websites
 
-| Static Website | Dynamic Website |
-|----------------|-----------------|
-| Fixed content | Content changes dynamically |
-| No server-side code | Uses backend languages (Python, Node.js, Java) |
-| Fast and cheap | Slower and more expensive |
+| Static Website      | Dynamic Website          |
+|-------------------|------------------------|
+| Fixed content      | Content changes dynamically |
+| No server-side code | Uses backend languages |
+| Fast and cheap     | Slower and more expensive |
 
----
+## AWS Services
 
-## AWS Services Used
-
-### Amazon S3 (Simple Storage Service)
-Used to store and retrieve data over the internet.
-
-Key points:
-- Bucket names must be globally unique  
-- General Purpose buckets: up to 10,000  
-- Pay only for what you use  
-- No upfront cost  
-
-**How to secure an S3 bucket**
-- Block Public Access  
-- Use ACL or IAM permissions  
-- Apply bucket policies  
-- Enable encryption  
-
----
-
-### Amazon CloudFront (CDN)
-
-CloudFront caches your content in global edge locations so users can access it quickly from anywhere.
-
-Benefits:
-- Faster content delivery  
+### Amazon S3
+- Stores and retrieves files over the internet  
+- Globally unique bucket names  
 - Pay-as-you-go  
-- Highly available  
-- Works with S3 using Origin Access Control (OAC)  
+- Secure using Block Public Access, ACLs/IAM, and bucket policies
 
----
+### Amazon CloudFront
+- Caches content at edge locations  
+- Works with S3 using OAC  
+- Fast, reliable, pay-as-you-go
 
 ## Project Structure
-
-```markdown
 s3-cloudfront-static-website/
 │
 ├── docs/
-│   ├── deployment-steps.md
-│   └── screenshots/
-│       ├── architecture.png
-│       ├── privately_hosted.png
-│       └── publicly_hosted.png
-│
+│ ├── deployment-steps.md
+│ └── screenshots/
+│ ├── architecture.png
+│ ├── privately_hosted.png
+│ └── publicly_hosted.png
 ├── README.md
-└── index.html
+├── index.html
+└── LICENSE
 
----
 
 ## Architecture Diagram
-
 Below is the architecture of the static website hosted on S3 and delivered through CloudFront:
 
 ![Architecture Diagram](docs/architecture.png)
 
----
 
-## Screenshot: Privately Hosted (OAC Enabled)
+Private buckets use OAC for secure access; public buckets can be accessed directly.
 
-This setup uses Origin Access Control so the S3 bucket remains private.
+## Screenshots
 
+**Privately Hosted (OAC Enabled)**  
 ![Privately Hosted Setup](docs/privately_hosted.png)
 
----
-
-## Screenshot: Publicly Hosted (No OAC)
-
-This version allows public access directly from the S3 bucket.
-
+**Publicly Hosted (No OAC)**  
 ![Publicly Hosted Setup](docs/publicly_hosted.png)
 
----
+## Deployment Steps
 
-## Deployment Steps (Console)
+1. Create an S3 bucket and upload `index.html`.  
+2. Create a CloudFront distribution with your bucket as the origin.  
+3. Configure OAC and apply the bucket policy if needed.  
+4. Copy the CloudFront domain URL to access your site.  
 
-1. Open S3 → Create a bucket  
-   Example name: `demo-bucket-13-11-25`
+(See `docs/deployment-steps.md` for full console workflow)
 
-2. Upload `index.html` to the bucket.
-
-3. Open CloudFront → Create Distribution  
-   - Origin type: Amazon S3  
-   - Select your bucket  
-   - Enable security protections (WAF optional)  
-   - Create distribution  
-
-4. After creation, open the distribution → Origins tab  
-   - Create new origin  
-   - Set Origin Access Control (OAC)  
-   - Copy the generated bucket policy  
-
-5. Go to S3 → Permissions → Bucket Policy  
-   - Paste the policy  
-   - Save changes  
-
-6. Copy the CloudFront domain URL  
-   Example:  
-   `d123abcd.cloudfront.net/index.html`
-
-7. If origin access is Public, no bucket policy is required.
-
----
-
-##License
-
-This project is licensed under the MIT License.
-=======
-## What Is a Static Website?
-
-A static website serves fixed files such as HTML, CSS, JavaScript, and JSON.  
-The browser loads the files directly without backend code or a database.
-
-### Typical examples
-- Personal portfolios  
-- Company info pages  
-- Documentation sites  
-
----
-
-## Why Host on S3 + CloudFront?
-
-- No servers to manage  
-- Cost effective  
-- Secure when using Origin Access Control (OAC)  
-- Fast global delivery using CloudFront edge caching  
-
----
-
-## Architecture Diagram
-
-+-------------------+
-| End User |
-| Browser/Client |
-+---------+---------+
-|
-v
-+-------------------+
-| CloudFront CDN |
-| (Edge Locations) |
-+---------+---------+
-|
-v
-+------------------------------+
-| Origin Access Control (OAC) |
-| Provides secure access |
-+--------------+---------------+
-|
-v
-+------------------------------+
-| S3 Bucket (Private) |
-| Stores HTML/CSS/JS files |
-+------------------------------+
-
-The S3 bucket may be public or private.  
-If private, CloudFront uses OAC to access objects securely.
-
----
-
-## Quick Usage
-
-1. Read `docs/deployment-steps.md` for the full AWS console workflow.  
-2. Add the architecture diagram to `docs/architecture.png`.  
-3. Upload CloudFront and S3 screenshots to `docs/screenshots/`.  
-4. Push updates to GitHub after testing.
-
----
-
-## Cleanup Instructions
-
-To avoid charges on your AWS Free Tier:
+## Cleanup
 
 - Delete the CloudFront distribution  
 - Empty and delete the S3 bucket  
-- Remove any extra AWS resources used during testing  
-
----
+- Remove other AWS resources used for testing
 
 ## License
 
-This project is licensed under the MIT License.  
-See the `LICENSE` file for details.
-
-
->>>>>>> 6d8a72082c4c0ffc78e98edea64053692407dac8
+MIT License. See `LICENSE` file for details.
 
