@@ -65,10 +65,10 @@ Private buckets use OAC for secure access; public buckets can be accessed direct
 ## Screenshots
 
 **Privately Hosted (OAC Enabled)**  
-![Privately Hosted Setup](docs/privately_hosted.png)
+![Privately Hosted Setup](docs/screenshots/privately_hosted.png)
 
 **Publicly Hosted (No OAC)**  
-![Publicly Hosted Setup](docs/publicly_hosted.png)
+![Publicly Hosted Setup](docs/screenshots/publicly_hosted.png)
 
 ## Deployment Steps
 
