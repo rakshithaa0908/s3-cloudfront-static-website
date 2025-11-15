@@ -57,7 +57,7 @@ s3-cloudfront-static-website/
 ## Architecture Diagram
 Below is the architecture of the static website hosted on S3 and delivered through CloudFront:
 
-![Architecture Diagram](docs/architecture.png)
+![Architecture Diagram](docs/screenshots/architecture.png)
 
 
 Private buckets use OAC for secure access; public buckets can be accessed directly.
