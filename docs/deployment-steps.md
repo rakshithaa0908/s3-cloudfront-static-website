@@ -1,8 +1,5 @@
 
 ---
-
-# **deployment-steps.md (Create this file inside /docs)**
-
 # Deployment Steps for S3 + CloudFront Static Website
 
 ## Step 1: Create S3 Bucket
