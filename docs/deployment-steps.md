@@ -1,9 +1,8 @@
 
 ---
 
-# ✅ **deployment-steps.md (Create this file inside /docs)**
+# **deployment-steps.md (Create this file inside /docs)**
 
-```markdown
 # Deployment Steps for S3 + CloudFront Static Website
 
 ## Step 1: Create S3 Bucket
@@ -35,7 +34,6 @@
 Use the CloudFront domain:
 https://<your-distribution-id>.cloudfront.net/index.html
 
-## Cleanup
-Delete the CloudFront distribution first, then delete the S3 bucket.
+
 
 
