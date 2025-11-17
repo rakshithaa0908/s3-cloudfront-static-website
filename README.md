@@ -39,6 +39,11 @@ A static website serves fixed files (HTML, CSS, JS, JSON) directly to the browse
 - Works with S3 using OAC  
 - Fast, reliable, pay-as-you-go
 
+## Deployment Steps
+
+Full deployment instructions:  
+See full deployment instructions [here](docs/deployment-steps.md)
+
 ## Project Structure
 ```
 s3-cloudfront-static-website/
@@ -46,9 +51,9 @@ s3-cloudfront-static-website/
 ├── docs/
 │ ├── deployment-steps.md
 │ └── screenshots/
-│ ├── architecture.png
-│ ├── privately_hosted.png
-│ └── publicly_hosted.png
+│ 	├── architecture.png
+│ 	├── privately_hosted.png
+│ 	└── publicly_hosted.png
 ├── README.md
 ├── index.html
 └── LICENSE
@@ -70,22 +75,8 @@ Private buckets use OAC for secure access; public buckets can be accessed direct
 **Publicly Hosted (No OAC)**  
 ![Publicly Hosted Setup](docs/screenshots/publicly_hosted.png)
 
-## Deployment Steps
-
-1. Create an S3 bucket and upload `index.html`.  
-2. Create a CloudFront distribution with your bucket as the origin.  
-3. Configure OAC and apply the bucket policy if needed.  
-4. Copy the CloudFront domain URL to access your site.  
-
-(See `docs/deployment-steps.md` for full console workflow)
-
-## Cleanup
-
-- Delete the CloudFront distribution  
-- Empty and delete the S3 bucket  
-- Remove other AWS resources used for testing
-
 ## License
 
 MIT License. See `LICENSE` file for details.
 
+---
