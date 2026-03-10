@@ -1,6 +1,6 @@
-﻿# Deploying a Static Website Using Amazon S3 and CloudFront
+﻿# Static Website Hosting with Amazon S3 and CloudFront
 
-Host a static website on AWS using S3 and deliver it globally via CloudFront. This guide covers static site concepts, AWS services used, deployment steps, and architecture.
+This project demonstrates how to host a static website on AWS S3 and deliver it globally via CloudFront, with both private and public access setups.
 
 ## What Is a Static Website?
 
